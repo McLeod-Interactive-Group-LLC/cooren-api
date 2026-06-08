@@ -33,6 +33,7 @@ The identical six-operation coordination primitive now runs on constrained embed
 **Note**: Full CoorenIO firmware source is proprietary and lives in a private repository (McLeod-Interactive-Group-LLC/CoorenIO). This example only demonstrates domain portability.
 
 ## Visuals
+
 <img width="1163" height="876" alt="image" src="https://github.com/user-attachments/assets/c289a4b9-0732-4bd6-b6aa-0698d0d4bbfc" />
 <img width="1276" height="905" alt="image" src="https://github.com/user-attachments/assets/319bd3a7-788f-4f8b-9ce5-4dfd87538128" />
 
@@ -41,4 +42,4 @@ The identical six-operation coordination primitive now runs on constrained embed
 ---
 
 **Links**:
-- [Cooren API Home](../README.md)
+- [Back to Cooren API Home](../README.md)
