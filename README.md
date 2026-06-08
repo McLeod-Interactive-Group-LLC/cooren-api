@@ -102,6 +102,7 @@ Async decision workflows across time zones. No meetings. Stakeholders signal, au
 
 **Manufacturing**
 Decentralized task allocation across machine nodes. Signal-driven orchestration without a central scheduler.
+- **Embedded / Physical** — [CoorenIO Wokwi simulation](examples/coorenio-wokwi/README.md) (Arduino Mega + DHT22 sensors + damper control)
 
 ---
 
