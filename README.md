@@ -33,13 +33,13 @@ The infrastructure to do this reliably — auth, state management, tally logic, 
 ## Core Architecture
 
 ### Zero-Trust Auth
-Single-use cryptographic participant tokens. Authority tokens gate session control. No passwords, no sessions.
+Single-use cryptographic participant tokens. Authority tokens gate session control from the outside. No static passwords, no persistent session hijacking vectors.
 
 ### Stateless Logic
-Listen-Act-Close architecture. Each request is self-contained. Scales horizontally with zero session state.
+Listen-Act-Close execution. Every request is completely self-contained. The engine calculates the state transition and immediately dissolves the transient memory space, scaling horizontally with zero state bloat.
 
-### Metered Billing
-Stripe-native billing. Free tier included. Upgrade via API. Usage tracked per key, per operation.
+### Substrate Invariance
+A deterministic logic loop entirely decoupled from the compute layer. The exact same six domain-agnostic operations execute identically whether driving an AI multi-agent orchestration runtime, a standard web API, or bare-metal microcontroller firmware.
 
 ---
 
