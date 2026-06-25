@@ -38,7 +38,7 @@ Single-use cryptographic participant tokens. Authority tokens gate session contr
 ### Stateless Logic
 Listen-Act-Close architecture. Each request is self-contained. Scales horizontally with zero session state.
 
-### Credit-as-a-Service
+### Metered Billing
 Stripe-native billing. Free tier included. Upgrade via API. Usage tracked per key, per operation.
 
 ---
