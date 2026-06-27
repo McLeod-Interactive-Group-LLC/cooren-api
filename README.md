@@ -118,10 +118,10 @@ The loop is proven in production. Cooren exposes it as infrastructure.
 
 | Tier | Price | Signals/month |
 |------|-------|---------------|
-| Free | $0 | 100 |
-| Starter | $49/mo | 10,000 |
-| Growth | $149/mo | 100,000 |
-| Scale | $499/mo | 1,000,000 |
+| Free | $0 | 25,000 |
+| Starter | $49/mo | 75,000 |
+| Growth | $149/mo | 250,000 |
+| Scale | $499/mo | 3,000,000 |
 | Enterprise | $1,499/mo | Unlimited + SLA |
 
 ---
