@@ -96,6 +96,8 @@ Step 6 is the gate. Steps 1–5 can complete with total agreement and **nothing 
 
 **Substrate invariance.** The six operations are not bound to one runtime. The same primitive is implemented independently as a **PHP web API** (this repo) and as **C++ firmware** for microcontrollers — separate codebases, identical operations — and serves as the coordination substrate for **multi-agent orchestration**, demonstrated in Project Jeda (domain-bounded reasoners signaling through a Cooren session under human authority). The logic loop is decoupled from the compute layer.
 
+**Access.** Cooren is reachable two ways today: directly over the REST API above, or through an MCP server exposing the same six operations as tools for an AI agent to call. The MCP server runs over stdio and has been confirmed end-to-end against this live API. Remote HTTP transport for MCP is in development — see Status below.
+
 ---
 
 ## Proven in production
@@ -126,15 +128,19 @@ The hardware track closes that gap. On the **Raspberry Pi Pico 2 (RP2350)**, the
 
 ---
 
-## Pricing
+## Pricing — pay at the gate
 
-| Tier | Price | Signals / month |
-|------|-------|-----------------|
-| Free       | $0        | 25,000 |
-| Starter    | $49/mo    | 75,000 |
-| Growth     | $149/mo   | 250,000 |
-| Scale      | $499/mo   | 3,000,000 |
-| Enterprise | $1,499/mo | Unlimited + SLA |
+Free coordination, paid consequence. Creating sessions, loading options, registering participants, submitting signals, and reading tallies are unlimited and free at every tier. The only billable event is `record_decision` — the moment a decision becomes binding and the loop closes. Everything before the gate is exploration. Everything after it is consequence, and that's what's guaranteed: security, transparency, and an auditable chain of custody on every decision recorded.
+
+| Tier | Price/mo | Included decisions | Overage/decision |
+|------|----------|---------------------|-------------------|
+| Free       | $0     | 100     | — |
+| Starter    | $19    | 1,000   | $0.03 |
+| Growth     | $79    | 10,000  | $0.015 |
+| Scale      | $249   | 50,000  | $0.008 |
+| Enterprise | Custom | Custom  | Custom |
+
+Annual billing: 2 months free. Enterprise includes dedicated support, custom SLA, and white-glove onboarding.
 
 ---
 
@@ -142,8 +148,9 @@ The hardware track closes that gap. On the **Raspberry Pi Pico 2 (RP2350)**, the
 
 - **Live** — the six coordination endpoints, running at `cooren.dev`
 - **Live** — The Dinner Decider reference implementation (Google Play, App Store)
+- **Live** — MCP server (stdio transport), confirmed end-to-end against the live API
 - **Private beta** — access by request
-- **In development** — self-serve signup, billing automation, Node.js SDK, expanded docs
+- **In development** — self-serve signup, billing automation, MCP remote HTTP transport, Node.js SDK, expanded docs
 - **Roadmap** — RP2350 hardware privilege boundary (specified, not yet shipped)
 
 ---
