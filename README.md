@@ -129,19 +129,15 @@ The hardware track closes that gap. On the **Raspberry Pi Pico 2 (RP2350)**, the
 ---
 
 ## Pricing — pay at the gate
-
-Free coordination, paid consequence. Creating sessions, loading options, registering participants, submitting signals, and reading tallies are unlimited and free at every tier. The only billable event is `record_decision` — the moment a decision becomes binding and the loop closes. Everything before the gate is exploration. Everything after it is consequence, and that's what's guaranteed: security, transparency, and an auditable chain of custody on every decision recorded.
-
-| Tier | Price/mo | Included decisions | Overage/decision |
-|------|----------|---------------------|-------------------|
-| Free       | $0     | 100     | — |
-| Starter    | $19    | 1,000   | $0.03 |
-| Growth     | $79    | 10,000  | $0.015 |
-| Scale      | $249   | 50,000  | $0.008 |
-| Enterprise | Custom | Custom  | Custom |
-
-Annual billing: 2 months free. Enterprise includes dedicated support, custom SLA, and white-glove onboarding.
-
+ 
+Free coordination, paid consequence. Creating sessions, loading options, registering participants, submitting signals, and reading tallies are unlimited and free — always, for everyone, no tiers, no plan to pick. The only billable event is `record_decision` — the moment a decision becomes binding and the loop closes.
+ 
+**$0.03 per decision. That's the whole price list.**
+ 
+No included-call allowances to track, no overage rates, no plan switching. Sign up, get a key, start coordinating for free, and pay only when a decision actually closes. Self-serve signup, key management, usage visibility, and billing are all handled without needing to contact us.
+ 
+Everything before the gate is exploration. Everything after it is consequence, and that's what's guaranteed: security, transparency, and an auditable chain of custody on every decision recorded.
+ 
 ---
 
 ## Status
