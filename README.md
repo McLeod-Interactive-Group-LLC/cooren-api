@@ -151,12 +151,10 @@ Everything before the gate is exploration. Everything after it is consequence, a
 
 ---
 
-## Request access
-
-Cooren is in private beta for select partners.
-
-→ [cooren.dev](https://cooren.dev) · contact@cooren.dev
-
+### Access
+Cooren is reachable two ways today:
+* **Programmatic REST API:** Direct integrations use a `cr_live_` dashboard token. See endpoints below.
+* **AI Code Assistant / IDE Layer:** Exposed as a remote Model Context Protocol (MCP) server natively over HTTP/SSE. To configure Cursor, Windsurf, or Claude Desktop via automated OAuth 2.1 consent, see our [Ecosystem MCP Quickstart Guide](docs/CoorenMCP_Quickstart.md).
 ---
 
 ## About
