@@ -1,0 +1,67 @@
+# Cooren Privacy Policy
+
+*Last updated: July 2026*
+
+This policy covers data handled by the Cooren MCP server (`mcp.cooren.dev`) and the underlying Cooren REST API (`cooren.dev`), operated by McLeod Interactive Group LLC ("Cooren," "we," "us").
+
+## What We Collect
+
+**Coordination data.** When you use Cooren's tools, we store the data required to run a coordination session:
+- Session titles and options
+- Participant identifiers and display names
+- Signals submitted by participants (option preferences, rankings)
+- Recorded decisions and the authority that recorded them
+- Timestamps for all of the above
+
+This data is stored to make the coordination loop function — the tally, decision, and announcement operations all depend on it being retained for the life of the session.
+
+**Authentication data.** Cooren MCP uses OAuth 2.1 with Dynamic Client Registration. We store:
+- OAuth client registrations
+- Bearer tokens (valid for 30 days), used to authenticate your MCP client to the server
+
+We do not store passwords. No static API key is used or accepted on the MCP interface.
+
+**Billing data.** When a decision is recorded, a $0.03 charge is processed through Stripe. We store a `decision_id` linked to the corresponding Stripe usage record for billing and reconciliation. We do not store payment card details — that is handled entirely by Stripe under its own privacy policy.
+
+**Technical logs.** Our infrastructure (Cloudflare Tunnel, application logs) may retain standard connection metadata (timestamps, source IP, request paths) for debugging and abuse prevention.
+
+## What We Do Not Collect
+
+- We do not collect health data.
+- We do not run advertising, and we do not share data with advertisers.
+- We do not sell data to third parties.
+- Cooren does not require or request personally identifying information beyond what a participant chooses to submit as their display name.
+
+## How We Use Data
+
+Data collected is used solely to:
+1. Operate the six coordination operations (session, participant, signal, tally, decision, announcement)
+2. Process billing for recorded decisions via Stripe
+3. Authenticate and authorize MCP client connections
+4. Debug and maintain the reliability of the service
+
+## Data Retention
+
+- **Session data** persists for the lifetime of the session plus a reasonable retention window for audit purposes. Sessions do not expire automatically, but stale sessions can be closed by the authority who created them.
+- **OAuth tokens** expire after 30 days and must be re-issued via a new consent flow.
+- **Billing records** are retained as required for financial recordkeeping and Stripe reconciliation.
+
+## Third-Party Services
+
+Cooren relies on the following third-party infrastructure, each governed by its own privacy policy:
+- **Stripe** — payment processing and usage-based billing
+- **Cloudflare** — DNS, tunnel, and edge network services
+- **iFastNet** — hosting for the REST API layer
+
+## Your Control
+
+If you are a participant in a Cooren session, the authority who created that session controls the data associated with it. If you operate your own MCP client connection, you can revoke access at any time by disconnecting the OAuth-authorized client from your Claude (or other MCP client) settings, or by contacting us to have your tokens invalidated.
+
+## Contact
+
+Questions about this policy or requests regarding your data can be sent to:
+
+**contact@cooren.dev**
+
+McLeod Interactive Group LLC
+Jacksonville, Florida
