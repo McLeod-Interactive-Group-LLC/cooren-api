@@ -13,7 +13,7 @@ Cooren is a coordination primitive with one defining property:
 
 Every coordinated decision has the same shape — options are defined, participants signal preferences, a tally aggregates them. Most systems stop there: agreement is reached, the action fires. Cooren inserts one thing between agreement and action — a **default-off authority gate**. The system can fully agree and still **hold**, taking no action, until a designated authority opens the gate.
 
-Six endpoints run the complete loop. No UI required. The gate is the point.
+Six operations run the complete loop. No UI required. The gate is the point.
 
 ---
 
@@ -37,6 +37,18 @@ As AI agents move from *suggesting* to *acting*, the dangerous failure mode is *
 Cooren is the boundary. The same six operations that collect and aggregate human votes collect and aggregate **agent signals** — and the gate decides whether that aggregate is permitted to become a state change. Agents propose. The gate, held by a human or a pre-committed policy, disposes.
 
 This is approval-gated execution as infrastructure — the control surface that emerging agent-governance requirements (and a builder's own caution) increasingly demand before an autonomous action fires.
+
+---
+
+## How to reach Cooren
+
+The engine is one system of record with two live doors:
+
+**REST API** — direct programmatic integration at `cooren.dev` using a `cr_live_` key from your dashboard. Endpoints below.
+
+**MCP server** — `mcp.cooren.dev`, live over remote HTTP with **OAuth 2.1** and Dynamic Client Registration. The same six operations, exposed as tools (`session_create`, `add_options`, `add_participants`, `submit_signal`, `get_tally`, `record_decision`) for any MCP-capable agent or IDE — Claude Desktop, Cursor, Windsurf. Per-account keys and billing are wired through the OAuth flow automatically. See the [MCP Quickstart Guide](docs/CoorenMCP_Quickstart.md).
+
+MCP is a transport into the same engine, not a second engine — one source of truth, one billing meter, one audit trail regardless of the door you enter through.
 
 ---
 
@@ -94,9 +106,7 @@ Step 6 is the gate. Steps 1–5 can complete with total agreement and **nothing 
 
 **Stateless logic.** Listen → aggregate → gate → close. Every request is self-contained. The engine computes the state transition and dissolves the transient memory space, scaling horizontally with no state bloat.
 
-**Substrate invariance.** The six operations are not bound to one runtime. The same primitive is implemented independently as a **PHP web API** (this repo) and as **C++ firmware** for microcontrollers — separate codebases, identical operations — and serves as the coordination substrate for **multi-agent orchestration**, demonstrated in Project Jeda (domain-bounded reasoners signaling through a Cooren session under human authority). The logic loop is decoupled from the compute layer.
-
-**Access.** Cooren is reachable two ways today: directly over the REST API above, or through an MCP server exposing the same six operations as tools for an AI agent to call. The MCP server runs over stdio and has been confirmed end-to-end against this live API. Remote HTTP transport for MCP is in development — see Status below.
+**Substrate invariance.** The six operations are not bound to one runtime. The same primitive is implemented independently as a **PHP web API** (this repo, live in production) and as **C++ firmware** targeting AVR and RP2350-class microcontrollers — separate codebases, identical operations. It also serves as the coordination substrate for **multi-agent orchestration**, demonstrated in Project Jeda: domain-bounded reasoners signaling through a live Cooren session under human authority. The logic loop is decoupled from the compute layer.
 
 ---
 
@@ -108,13 +118,25 @@ The loop is proven in production. Cooren generalizes it.
 
 ---
 
+## Pricing — pay at the gate
+
+Free coordination, paid consequence. Creating sessions, loading options, registering participants, submitting signals, and reading tallies are unlimited and free — always, for everyone, no tiers, no plan to pick. The only billable event is `record_decision` — the moment a decision becomes binding and the loop closes.
+
+**$0.03 per decision. That's the whole price list.**
+
+No included-call allowances to track, no overage rates, no plan switching. Sign up, get a key, start coordinating for free, and pay only when a decision actually closes. Signup, key management, usage visibility, and billing are all self-serve — no contact required.
+
+Everything before the gate is exploration. Everything after it is consequence, and that's what's guaranteed: security, transparency, and an auditable chain of custody on every decision recorded.
+
+---
+
 ## Roadmap — the gate with teeth
 
 In software, the gate is enforced by code running in the **same trust domain** as the participants. That is sufficient for cooperative settings, but a determined participant could, in principle, reach the rules that bind it.
 
 The hardware track closes that gap. On the **Raspberry Pi Pico 2 (RP2350)**, the design places the gate in **privileged mode behind a hardware MPU boundary**, with participant tasks running unprivileged. A participant that attempts to force a decision directly takes a hardware fault — the rules it is governed by are physically out of its reach. That boundary is the layer software-only orchestration cannot replicate.
 
-**Status: specified, in active development. Not yet shipped.** The coordination loop runs today in simulation; the privilege boundary is the next milestone. Claims here are held to exactly that line.
+**Status: specified, not yet built.** The coordination loop runs today in production across web and API surfaces; the hardware privilege boundary is future work. Claims here are held to exactly that line.
 
 ---
 
@@ -128,33 +150,15 @@ The hardware track closes that gap. On the **Raspberry Pi Pico 2 (RP2350)**, the
 
 ---
 
-## Pricing — pay at the gate
- 
-Free coordination, paid consequence. Creating sessions, loading options, registering participants, submitting signals, and reading tallies are unlimited and free — always, for everyone, no tiers, no plan to pick. The only billable event is `record_decision` — the moment a decision becomes binding and the loop closes.
- 
-**$0.03 per decision. That's the whole price list.**
- 
-No included-call allowances to track, no overage rates, no plan switching. Sign up, get a key, start coordinating for free, and pay only when a decision actually closes. Self-serve signup, key management, usage visibility, and billing are all handled without needing to contact us.
- 
-Everything before the gate is exploration. Everything after it is consequence, and that's what's guaranteed: security, transparency, and an auditable chain of custody on every decision recorded.
- 
----
-
 ## Status
 
-- **Live** — the six coordination endpoints, running at `cooren.dev`
+- **Live** — the six coordination endpoints at `cooren.dev`, with self-serve signup, key management, and metered billing ($0.03 per `record_decision`)
+- **Live** — MCP server at `mcp.cooren.dev` (remote HTTP, OAuth 2.1, per-account billing)
 - **Live** — The Dinner Decider reference implementation (Google Play, App Store)
-- **Live** — MCP server (stdio transport), confirmed end-to-end against the live API
-- **Private beta** — access by request
-- **In development** — self-serve signup, billing automation, MCP remote HTTP transport, Node.js SDK, expanded docs
-- **Roadmap** — RP2350 hardware privilege boundary (specified, not yet shipped)
+- **Live** — Project Jeda multi-agent orchestration demo ([cooren.dev/project/jeda](https://cooren.dev/project/jeda))
+- **In development** — Node.js SDK, expanded docs
+- **Roadmap** — RP2350 hardware privilege boundary (specified, not yet built)
 
----
-
-### Access
-Cooren is reachable two ways today:
-* **Programmatic REST API:** Direct integrations use a `cr_live_` dashboard token. See endpoints below.
-* **AI Code Assistant / IDE Layer:** Exposed as a remote Model Context Protocol (MCP) server natively over HTTP/SSE. To configure Cursor, Windsurf, or Claude Desktop via automated OAuth 2.1 consent, see our [Ecosystem MCP Quickstart Guide](docs/CoorenMCP_Quickstart.md).
 ---
 
 ## About
